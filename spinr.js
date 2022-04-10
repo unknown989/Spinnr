@@ -50,7 +50,7 @@ class Spinr extends Plugin {
         var i = 0;
         this.intervalobj = setInterval(() => {
             if (this.spin) {
-                this.start_custom(`${kleur.blue(this.pattern[i++])} ${this.text}`, false)
+                this.start_custom(`${kleur.blue(this.pattern[i++])} ${kleur.bold().grey(this.text)}`, false)
                 i = i % this.pattern.length;
             }
         }, this.interval)
