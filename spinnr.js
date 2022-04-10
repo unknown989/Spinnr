@@ -7,7 +7,6 @@ class Plugin {
         this.interval = 150;
         this.text = "";
         this.spin = true;
-        this.old_text = "";
     }
     set_text(text) {
         this.text = text;
@@ -22,20 +21,13 @@ class Plugin {
         this.spin = true;
         if (use_interval) {
             this.intervalobj = setInterval(() => {
-                if (this.old_text.length !== this.text.length) {
-                    stdout.clearLine();
-                }
+
                 if (this.spin) {
                     stdout.write(`\r${text}`)
-                    this.old_text = this.text;
                 }
             }, this.interval)
         } else {
-            if (this.old_text.length !== this.text.length) {
-                stdout.clearLine();
-            }
             stdout.write(`\r${text}`)
-            this.old_text = this.text;
         }
     }
     stop_custom() {
@@ -46,6 +38,7 @@ class Plugin {
 }
 
 class Spinnr extends Plugin {
+
     constructor() {
         super();
         this.pattern = ["░", "▒", "▓", "▒"]
@@ -54,6 +47,8 @@ class Spinnr extends Plugin {
         this.done_flag = "✔";
         this.loading_edit = kleur.blue;
         this.text_edit = kleur.bold().grey;
+        this.should_update = false;
+
     }
 
     start(text = "") {
@@ -63,6 +58,10 @@ class Spinnr extends Plugin {
         var i = 0;
         this.intervalobj = setInterval(() => {
             if (this.spin) {
+                if (this.should_update) {
+                    stdout.clearLine();
+                    this.should_update = false;
+                }
                 this.start_custom(`${this.loading_edit(this.pattern[i++])} ${this.text_edit(this.text)}`, false)
                 i = i % this.pattern.length;
             }
@@ -88,6 +87,7 @@ class Spinnr extends Plugin {
     }
     set_text(text) {
         this.text = text;
+        this.should_update = true;
     }
     set_pattern(pattern) {
         if (!Array.isArray(pattern)) {

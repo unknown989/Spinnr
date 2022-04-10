@@ -25,7 +25,7 @@ spinner.set_done_flag("✔");
 spinner.start()
 
 setTimeout(() => {
-    spinner.set_text("Starting Cold Blood...");
+    spinner.set_text("Starting Cold Blood war....");
 }, 1000)
 setTimeout(() => {
     spinner.set_text("Calling The Soldiers...");
