@@ -36,11 +36,15 @@ class Plugin {
     }
 }
 
-class Spinr extends Plugin {
+class Spinnr extends Plugin {
     constructor() {
         super();
         this.pattern = ["░", "▒", "▓", "▒"]
         this.waiting_timeout = 1000;
+        this.delete = false;
+        this.done_flag = "✔";
+        this.loading_edit = kleur.blue;
+        this.text_edit = kleur.bold().grey;
     }
 
     start(text = "") {
@@ -50,17 +54,35 @@ class Spinr extends Plugin {
         var i = 0;
         this.intervalobj = setInterval(() => {
             if (this.spin) {
-                this.start_custom(`${kleur.blue(this.pattern[i++])} ${kleur.bold().grey(this.text)}`, false)
+                this.start_custom(`${this.loading_edit(this.pattern[i++])} ${this.text_edit(this.text)}`, false)
                 i = i % this.pattern.length;
             }
         }, this.interval)
+    }
+    set_loading_edit(f) {
+        if (typeof f !== "function") {
+            throw new Error(kleur.red("The edit you are trying to set are not a function " + f))
+        }
+        this.loading_edit = f;
+    }
+    set_text_edit(f) {
+        if (typeof f !== "function") {
+            throw new Error(kleur.red("The edit you are trying to set are not a function " + f))
+        }
+        this.text_edit = f;
+    }
+    set_done_flag(flag) {
+        this.done_flag = flag;
+    }
+    set_delete(del) {
+        this.delete = del;
     }
     set_text(text) {
         this.text = text;
     }
     set_pattern(pattern) {
         if (!Array.isArray(pattern)) {
-            throw new Error("The pattern you are trying to set are not an array " + Object.toString(patterns))
+            throw new Error(kleur.red("The pattern you are trying to set are not an array " + Object.toString(patterns)))
         }
         this.pattern = pattern;
     }
@@ -72,10 +94,12 @@ class Spinr extends Plugin {
     }
     stop() {
         this.spin = false;
-        stdout.write(`\r${kleur.green("✔")} ${this.text}`);
+        stdout.write(`\r${kleur.green(this.done_flag)} ${this.text}`);
         setTimeout(() => {
             this.stop_custom();
-            stdout.clearLine();
+            if (this.delete) {
+                stdout.clearLine();
+            }
         }, 1000)
     }
 }
@@ -89,4 +113,4 @@ let patterns = {
 };
 
 
-module.exports = { Spinr, patterns, Plugin }
+module.exports = { Spinnr, patterns, Plugin }

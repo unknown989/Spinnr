@@ -1,8 +1,8 @@
 {
-  "name": "spinr",
+  "name": "spinnr",
   "version": "1.0.0",
   "description": "",
-  "main": "spinr.js",
+  "main": "spinnr.js",
   "scripts": {
     "test": "node ./testspin.js"
   },
