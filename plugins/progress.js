@@ -1,4 +1,4 @@
-const { Plugin } = require("../spinr");
+const { Plugin } = require("../spinnr");
 
 class Progress extends Plugin {
     constructor() {
