@@ -8,7 +8,7 @@ spinner.set_interval(75);
 spinner.set_pattern(patterns.Ladder);
 spinner.start()
 
-setTimeout(() => { spinner.stop() }, 2000)
+setTimeout(() => { spinner.stop() }, 10000)
 
 
 // const progress = new Progress();

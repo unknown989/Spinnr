@@ -1,4 +1,5 @@
 const { stdout } = require("process");
+const kleur = require("kleur");
 
 class Plugin {
     constructor() {
@@ -49,7 +50,7 @@ class Spinr extends Plugin {
         var i = 0;
         this.intervalobj = setInterval(() => {
             if (this.spin) {
-                this.start_custom(`${this.pattern[i++]} ${this.text}`, false)
+                this.start_custom(`${kleur.blue(this.pattern[i++])} ${this.text}`, false)
                 i = i % this.pattern.length;
             }
         }, this.interval)
@@ -71,7 +72,7 @@ class Spinr extends Plugin {
     }
     stop() {
         this.spin = false;
-        stdout.write(`\r✔ ${this.text}`);
+        stdout.write(`\r${kleur.green("✔")} ${this.text}`);
         setTimeout(() => {
             this.stop_custom();
             stdout.clearLine();
