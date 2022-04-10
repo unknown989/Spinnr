@@ -1,6 +1,6 @@
 # **Spinnr** - terminal spinners made easy
 
-![](./public/presentation.gif)
+![](https://github.com/unknown989/Spinnr/raw/main/public/presentation.gif)
 
 ## Usage
 
