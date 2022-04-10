@@ -9,7 +9,7 @@ class Plugin {
         this.spin = true;
     }
     set_text(text) {
-        this.text = "";
+        this.text = text;
     }
     set_interval(interval) {
         if (typeof interval !== "number") {
