@@ -25,15 +25,15 @@ spinner.set_done_flag("✔");
 spinner.start()
 
 setTimeout(() => {
-    spinner.set_text("Starting Cold Blood war....");
+    spinner.set_text("Starting Cold Blood...");
 }, 1000)
 setTimeout(() => {
-    spinner.set_text("Calling The Soldiers...");
+    spinner.set_text("Calling Soldiers...");
 }, 2000)
 setTimeout(() => {
-    spinner.set_text("Preparing The Trucks...");
+    spinner.set_text("Preparing Trucks...");
 }, 3000)
 setTimeout(() => {
-    spinner.set_text("Dropping The Soldiers...");
+    spinner.set_text("Dropping Soldiers...");
 }, 4000)
 setTimeout(() => { spinner.set_text("Cold Blood Operation Started"); spinner.stop() }, 5000)
