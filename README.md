@@ -1,5 +1,9 @@
 # **Spinnr** - terminal spinners made easy
 
+<video width="320" controls="false" height="240" autoplay repeat>
+<source src="./public/vid.mp4" type="video/mp4">
+</video>
+
 ## Usage
 
 ```js

@@ -1,14 +1,19 @@
 {
-  "name": "spinnr",
-  "version": "1.0.0",
-  "description": "",
-  "main": "spinnr.js",
-  "scripts": {
-    "test": "node ./testspin.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "kleur": "^4.1.4"
-  }
+	"name": "spinnr",
+	"version": "1.0.0",
+	"description": "",
+	"main": "spinnr.js",
+	"scripts": {
+		"test": "node ./testspin.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"kleur": "^4.1.4"
+	},
+	"keywords": [
+		"spinner",
+		"terminal",
+		"loading"
+	]
 }
