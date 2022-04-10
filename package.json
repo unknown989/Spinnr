@@ -1,0 +1,11 @@
+{
+  "name": "spinr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "spinr.js",
+  "scripts": {
+    "test": "node ./testspin.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
