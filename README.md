@@ -2,6 +2,29 @@
 
 ![](https://github.com/unknown989/Spinnr/raw/main/public/presentation.gif)
 
+## Content Table
+
+> - [Install](#install)
+> - [Usage](#usafe)
+> - [Features](#feautures)
+> - [Example](#example)
+> - [Documentation](#documentation)
+> - - [Setting Text](#setting-text)
+> - - [Setting Interval](#setting-interval)
+> - - [Setting Pattern](#setting-pattern)
+> - - [Setting Delete](#setting-delete)
+> - - [Setting Waiting Timeout](#setting-waiting-timeout)
+> - - [Setting the finishing text](#setting-the-finishing-text)
+> - - [Customizing Loading Spinner](#customizing-loading-spinner)
+> - - [Customizing Text](#customizing-the-text)
+> - [Patterns](#patterns)
+> - [Plugins](#plugins)
+> - [Authors](#authors)
+
+## Install
+
+`npm install spinnr` or `yarn add spinnr`
+
 ## Usage
 
 ```js
@@ -78,7 +101,7 @@ setTimeout(() => {
 
 # Documentation
 
-- ## Setting Text
+- ### **Setting Text**
 
   Setting the text to show
 
@@ -89,14 +112,14 @@ setTimeout(() => {
 
   > **text** (String) : the text you wanna show
 
-- ## Setting Interval
+- ### **Setting Interval**
   How long each pattern character takes
   ```js
   const spinner = new Spinnr();
   spinner.set_interval(interval);
   ```
   > **interval** (Number) : the time each pattern character takes in **ms**
-- ## Setting Pattern
+- ### **Setting Pattern**
 
   the spinner pattern
 
@@ -113,7 +136,49 @@ setTimeout(() => {
 
   Using [`patterns`](#patterns) is recommended
 
-- ## Customizing Loading Spinner
+- ### **Setting Delete**
+
+  Choosing if the spinner is going to be deleted after it is done
+
+  ```js
+  const spinner = new Spinnr();
+  spinner.set_delete(true);
+  ```
+
+  > **del** (Bool) : the option to delete
+
+  if specificied the spinner will be deleted for the line and will live a blank line,
+  if not nothing will happen
+
+- ### **Setting Waiting Timeout**
+
+  Specifiying the time the spinner will take to break when it's done
+
+  ```js
+  const spinner = new Spinnr();
+  spinner.set_waiting_timeout(1000); // 1s
+  ```
+
+  > **waiting_timeout** (Number) : the timeout duration in **ms**
+
+  if can accept `0` which means the spinner won't wait
+
+- ### **Setting the finishing text**
+
+  Setting up the text that will be shown instead of the pattern when the loading is done
+
+  **won't work if `waiting_timeout` is 0**
+
+  ```js
+  const spinner = new Spinnr();
+  spinner.set_done_flag("✔");
+  ```
+
+  > **flag** (Text) : the flag to show
+
+  the flag is also affected by [`set_loading_edit`](#customizing-loading-spinner)
+
+- ### **Customizing Loading Spinner**
 
   Customizing the loading spinner
 
@@ -132,7 +197,7 @@ setTimeout(() => {
 
   using [`kleur`](https://github.com/lukeed/kleur) is recommended
 
-- ## Customizing the text
+- ### **Customizing the text**
 
   Customizing the shown text
 
@@ -150,48 +215,6 @@ setTimeout(() => {
   in the example above the text is normally black and has normal styles but once we added the `set_text_edit` function, it'll show up in a green colour with a line under
 
   using [`kleur`](https://github.com/lukeed/kleur) is recommended
-
-- ## Setting Delete
-
-  Choosing if the spinner is going to be deleted after it is done
-
-  ```js
-  const spinner = new Spinnr();
-  spinner.set_delete(true);
-  ```
-
-  > **del** (Bool) : the option to delete
-
-  if specificied the spinner will be deleted for the line and will live a blank line,
-  if not nothing will happen
-
-- ## Setting Waiting Timeout
-
-  Specifiying the time the spinner will take to break when it's done
-
-  ```js
-  const spinner = new Spinnr();
-  spinner.set_waiting_timeout(1000); // 1s
-  ```
-
-  > **waiting_timeout** (Number) : the timeout duration in **ms**
-
-  if can accept `0` which means the spinner won't wait
-
-- ## Setting the finishing text
-
-  Setting up the text that will be shown instead of the pattern when the loading is done
-
-  **won't work if `waiting_timeout` is 0**
-
-  ```js
-  const spinner = new Spinnr();
-  spinner.set_done_flag("✔");
-  ```
-
-  > **flag** (Text) : the flag to show
-
-  the flag is also affected by [`set_loading_edit`](#customizing-loading-spinner)
 
 ## Patterns
 
