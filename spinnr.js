@@ -7,6 +7,7 @@ class Plugin {
         this.interval = 150;
         this.text = "";
         this.spin = true;
+        this.old_text = "";
     }
     set_text(text) {
         this.text = text;
@@ -21,12 +22,20 @@ class Plugin {
         this.spin = true;
         if (use_interval) {
             this.intervalobj = setInterval(() => {
+                if (this.old_text.length !== this.text.length) {
+                    stdout.clearLine();
+                }
                 if (this.spin) {
                     stdout.write(`\r${text}`)
+                    this.old_text = this.text;
                 }
-            })
+            }, this.interval)
         } else {
+            if (this.old_text.length !== this.text.length) {
+                stdout.clearLine();
+            }
             stdout.write(`\r${text}`)
+            this.old_text = this.text;
         }
     }
     stop_custom() {
