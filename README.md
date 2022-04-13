@@ -1,11 +1,14 @@
 # **Spinnr** - terminal spinners made easy
+<div align=center>
+<img width=200 src="https://github.com/unknown989/Spinnr/raw/main/Spinnr.png">
+</div>
 
 ![](https://github.com/unknown989/Spinnr/raw/main/public/presentation.gif)
 
 ## Content Table
 
 > - [Install](#install)
-> - [Usage](#usafe)
+> - [Usage](#usage)
 > - [Features](#feautures)
 > - [Example](#example)
 > - [Documentation](#documentation)
